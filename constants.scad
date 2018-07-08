@@ -1,0 +1,16 @@
+
+CROSS_LENGTH = 60;
+CROSS_R = 2.5;
+
+CROSS_INNER = 2.5;
+CROSS_OUTER = 30;
+
+THREAD_LENGTH = 10;
+THREAD_R = 8;
+THREAD_PITCH = 3;
+
+ROD_R = 10;
+
+// Derived values
+
+INNER_R = 2 * THREAD_R - ROD_R;
