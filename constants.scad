@@ -7,10 +7,12 @@ CROSS_OUTER = 30;
 
 THREAD_LENGTH = 10;
 THREAD_R = 8;
-THREAD_PITCH = 3;
+THREAD_PITCH = 4;
 
 ROD_R = 10;
 
 // Derived values
 
-INNER_R = 2 * THREAD_R - ROD_R;
+// INNER_R = 2 * THREAD_R - ROD_R;
+
+INNER_R = 5;
