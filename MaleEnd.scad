@@ -1,16 +1,15 @@
 
-include <./threads.scad>;
 include <./constants.scad>;
-
 include <./cross.scad>;
 
+use <./MaleConnector.scad>;
 
 
 difference() {
     union() {
 
         translate([0, 0, CROSS_R * 2]) {
-            metric_thread(THREAD_R * 2, THREAD_PITCH, THREAD_LENGTH, leadin = 1, n_starts = 2);
+            maleConnector();
         }
 
         cylinder(CROSS_INNER * 2, ROD_R, ROD_R);
