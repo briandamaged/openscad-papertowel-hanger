@@ -10,7 +10,7 @@ difference() {
     union() {
 
         translate([0, 0, CROSS_R * 2]) {
-            metric_thread(THREAD_R * 2, THREAD_PITCH, THREAD_LENGTH, leadin = 1);
+            metric_thread(THREAD_R * 2, THREAD_PITCH, THREAD_LENGTH, leadin = 1, n_starts = 2);
         }
 
         cylinder(CROSS_INNER * 2, ROD_R, ROD_R);
@@ -22,8 +22,10 @@ difference() {
 
 
 
-
+/*
 translate([0, 0, CROSS_R]) {
     cross(CROSS_INNER, CROSS_OUTER);
 }
+
+*/
 
