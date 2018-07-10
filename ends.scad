@@ -2,7 +2,7 @@
 include <./constants.scad>;
 include <./cross.scad>;
 
-use <./MaleConnector.scad>;
+use <./connectors.scad>;
 
 
 difference() {
