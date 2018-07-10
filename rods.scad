@@ -4,11 +4,13 @@ use <./connectors.scad>;
 
 module rod(rod_length = ROD_LENGTH, thread_length = THREAD_LENGTH, rod_r = ROD_R, thread_r = THREAD_R) {
     
+    inner_length = rod_length - (2 * thread_length);
+
     top_length = 10;
-    bottom_length = rod_length - top_length;
+    bottom_length = inner_length - top_length;
     
 
-    translate([0, 0, (thread_length + rod_length) / 2]) {
+    translate([0, 0, (thread_length + inner_length) / 2]) {
         maleConnector(thread_length = thread_length, thread_r = thread_r);
     }
 
@@ -29,7 +31,7 @@ module rod(rod_length = ROD_LENGTH, thread_length = THREAD_LENGTH, rod_r = ROD_R
     }
 
 
-    translate([0, 0, -(thread_length + rod_length) / 2]) {
+    translate([0, 0, -(thread_length + inner_length) / 2]) {
         femaleConnector(thread_length = thread_length, thrad_r = thread_r, rod_r = rod_r);
     }
 
@@ -38,11 +40,14 @@ module rod(rod_length = ROD_LENGTH, thread_length = THREAD_LENGTH, rod_r = ROD_R
 
 segment_length = ROD_LENGTH / ROD_SEGMENTS;
 
+rod(rod_length = segment_length);
+
+/*
 for(i = [0:ROD_SEGMENTS - 1]) {
     translate([3 * i * ROD_R, 0, 0]) {
         rod(rod_length = segment_length);
     }
 }
-
+*/
 
 
