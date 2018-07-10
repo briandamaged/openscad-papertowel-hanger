@@ -2,20 +2,20 @@
 include <./constants.scad>;
 use <./connectors.scad>;
 
-module rod(rod_length = ROD_LENGTH, thread_length = THREAD_LENGTH, rod_r = ROD_R, thread_r = THREAD_R, inner_r = 0) {
+module rod(rod_length = ROD_LENGTH, thread_length = THREAD_LENGTH, rod_r = ROD_R, thread_r = THREAD_R) {
     
-    top_length = 5;
+    top_length = 10;
     bottom_length = rod_length - top_length;
     
 
     translate([0, 0, (thread_length + rod_length) / 2]) {
-        maleConnector();
+        maleConnector(thread_length = thread_length, thread_r = thread_r);
     }
 
     translate([0, 0, bottom_length / 2]) {
         difference() {
-            cylinder(5, rod_r, rod_r, center = true);
-            cylinder(5 + 0.01, thread_r, inner_r, center = true);
+            cylinder(top_length, rod_r, rod_r, center = true);
+            cylinder(top_length + 0.01, thread_r, 0, center = true);
         }
 
     }
@@ -30,9 +30,19 @@ module rod(rod_length = ROD_LENGTH, thread_length = THREAD_LENGTH, rod_r = ROD_R
 
 
     translate([0, 0, -(thread_length + rod_length) / 2]) {
-        femaleConnector(rod_r = rod_r);        
+        femaleConnector(thread_length = thread_length, thrad_r = thread_r, rod_r = rod_r);
     }
 
 }
 
-rod();
+
+segment_length = ROD_LENGTH / ROD_SEGMENTS;
+
+for(i = [0:ROD_SEGMENTS - 1]) {
+    translate([3 * i * ROD_R, 0, 0]) {
+        rod(rod_length = segment_length);
+    }
+}
+
+
+
