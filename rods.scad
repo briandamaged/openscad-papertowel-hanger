@@ -2,7 +2,7 @@
 include <./constants.scad>;
 use <./connectors.scad>;
 
-module rod(rod_length = ROD_LENGTH, thread_length = THREAD_LENGTH, rod_r = ROD_R, thread_r = THREAD_R, inner_r = INNER_R) {
+module rod(rod_length = ROD_LENGTH, thread_length = THREAD_LENGTH, rod_r = ROD_R, thread_r = THREAD_R, inner_r = 0) {
     
     top_length = 5;
     bottom_length = rod_length - top_length;
@@ -35,4 +35,4 @@ module rod(rod_length = ROD_LENGTH, thread_length = THREAD_LENGTH, rod_r = ROD_R
 
 }
 
-rod(rod_length = 15);
+rod();

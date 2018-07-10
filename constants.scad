@@ -13,8 +13,4 @@ THREAD_N_STARTS = 2;
 ROD_R = 10;
 ROD_LENGTH = 50;
 
-// Derived values
-
-// INNER_R = 2 * THREAD_R - ROD_R;
-
 INNER_R = 5;
