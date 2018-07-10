@@ -11,6 +11,7 @@ THREAD_PITCH = 4;
 THREAD_N_STARTS = 2;
 
 ROD_R = 10;
+ROD_LENGTH = 50;
 
 // Derived values
 
