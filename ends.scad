@@ -1,30 +1,45 @@
 
 include <./constants.scad>;
-include <./cross.scad>;
+include <./wheel.scad>;
 
 use <./connectors.scad>;
 
 
-difference() {
-    union() {
+module cap() {
+    wheel(CROSS_INNER, CROSS_OUTER);
+    cylinder(CROSS_INNER * 2, ROD_R, ROD_R, center = true);
+}
 
-        translate([0, 0, CROSS_R * 2]) {
-            maleConnector();
-        }
 
-        cylinder(CROSS_INNER * 2, ROD_R, ROD_R);
-
+module maleEnd() {
+    translate([0, 0, THREAD_LENGTH / 2 + CROSS_INNER * 2]) {
+        maleConnector();
     }
     
-    cylinder((CROSS_INNER + THREAD_LENGTH) * 3, INNER_R, INNER_R, center = true);
+    translate([0, 0, CROSS_INNER]) {
+        cap();
+    }
+}
+
+
+module femaleEnd() {
+    translate([0, 0, THREAD_LENGTH / 2 + CROSS_INNER * 2]) {
+        femaleConnector();
+    }
+    
+    translate([0, 0, CROSS_INNER]) {
+        cap();
+    }
 }
 
 
 
-/*
-translate([0, 0, CROSS_R]) {
-    cross(CROSS_INNER, CROSS_OUTER);
+translate([30, 30, 0]) {
+    maleEnd();
 }
 
-*/
+translate([-30, -30, 0]) {
+    femaleEnd();
+}
+
 
