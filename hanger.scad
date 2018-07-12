@@ -3,7 +3,7 @@ include <./constants.scad>;
 
 use <./torus.scad>;
 
-module hanger(width, height, r = CROSS_R) {
+module hanger(width = HOOK_WIDTH, height = HOOK_HEIGHT, r = CROSS_R) {
     // No pun intended...
     hook_r = width / 2;
     inner_height = (height / 2) - (2 * hook_r);
@@ -43,4 +43,4 @@ module hanger(width, height, r = CROSS_R) {
 
 }
 
-hanger(ROD_R * 3.2, 100);
+hanger();
