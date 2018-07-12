@@ -13,3 +13,4 @@ The main files to look at are:
 | [complete.scad](./complete.scad) | Lays out all of the components so that they can all be printed at once. |
 | [constants.scad](./constants.scad) | Contains the parameters that I used for my specific print.  Feel free to revise as necessary. |
 
+![OpenSCAD Rendering](./complete_scad.png)
