@@ -4,7 +4,8 @@ use <./connectors.scad>;
 
 module rod(rod_length = ROD_LENGTH, thread_length = THREAD_LENGTH, rod_r = ROD_R, thread_r = THREAD_R) {
     
-    inner_length = rod_length - (2 * thread_length);
+    // The female connector is counted as part of the rod's body.
+    inner_length = rod_length - thread_length;
 
     top_length = 10;
     bottom_length = inner_length - top_length;
@@ -40,14 +41,11 @@ module rod(rod_length = ROD_LENGTH, thread_length = THREAD_LENGTH, rod_r = ROD_R
 
 segment_length = ROD_LENGTH / ROD_SEGMENTS;
 
-rod(rod_length = segment_length);
-
-/*
 for(i = [0:ROD_SEGMENTS - 1]) {
-    translate([3 * i * ROD_R, 0, 0]) {
+    translate([2.5 * i * ROD_R, 0, 0]) {
         rod(rod_length = segment_length);
     }
 }
-*/
+
 
 
